@@ -34,7 +34,7 @@ class HomePageState extends State<HomePage> {
         scaffoldKey: scaffoldKey,
       ),
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.grey.shade900,
         leading: IconButton(
           icon: const Icon(
             Icons.menu,
@@ -83,54 +83,55 @@ class HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.black,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
-            )
-          ],
-        ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-            child: GNav(
-              rippleColor: Colors.grey[300]!,
-              hoverColor: Colors.grey[100]!,
-              gap: 8,
-              activeColor: Color.fromRGBO(172, 25, 41, 1),
-              iconSize: 24,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: const Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.grey[100]!,
-              color: Colors.white,
-              tabs: const [
-                GButton(
-                  icon: Icons.home,
-                  text: 'Home',
-                ),
-                GButton(
-                  icon: FontAwesome5.credit_card,
-                  text: 'Deposits',
-                ),
-                GButton(
-                  icon: Icons.calendar_month,
-                  text: 'Calendar',
-                ),
-                GButton(
-                  icon: Icons.person,
-                  text: 'Profile',
-                ),
-              ],
-              selectedIndex: _selectedIndex,
-              onTabChange: (index) {
-                setState(() {
-                  _selectedIndex = index;
-                  menuController.jumpToPage(_selectedIndex);
-                });
-              },
-            ),
+        decoration: BoxDecoration(color: Colors.grey.shade200),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
+          child: GNav(
+            backgroundColor: Colors.grey.shade200,
+            gap: 8,
+            activeColor: const Color.fromRGBO(172, 25, 41, 1),
+            // iconSize: 20,
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+            duration: const Duration(milliseconds: 400),
+            color: Colors.grey.shade800,
+            // tabBackgroundColor: Colors.grey.shade200,
+            // tabShadow: [
+            //   BoxShadow(
+            //       color: Colors.grey.shade100,
+            //       offset: Offset(-5, -5),
+            //       blurRadius: 1,
+            //       spreadRadius: 1),
+            //   BoxShadow(
+            //       color: Colors.grey.shade500,
+            //       offset: Offset(3, 3),
+            //       blurRadius: 1,
+            //       spreadRadius: 1),
+            // ],
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+              ),
+              GButton(
+                icon: FontAwesome5.credit_card,
+                text: 'Deposits',
+              ),
+              GButton(
+                icon: Icons.calendar_month,
+                text: 'Calendar',
+              ),
+              GButton(
+                icon: Icons.person,
+                text: 'Profile',
+              ),
+            ],
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              setState(() {
+                _selectedIndex = index;
+                menuController.jumpToPage(_selectedIndex);
+              });
+            },
           ),
         ),
       ),

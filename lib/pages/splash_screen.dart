@@ -32,19 +32,31 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 Expanded(
                   child: Container(
-                    decoration: BoxDecoration(color: Colors.black),
+                    decoration: BoxDecoration(color: Colors.grey.shade900),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image(
-                          image: AssetImage('assets/logo_broker.png'),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Image(
+                                height: 350,
+                                image: AssetImage(
+                                    'assets/broker_splash_image.png'),
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                          width: 50,
-                          height: 50,
-                          child: CircularProgressIndicator.adaptive(
-                            backgroundColor: Colors.white,
-                          ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircularProgressIndicator.adaptive(
+                              backgroundColor: Colors.white,
+                            ),
+                          ],
                         ),
                       ],
                     ),
